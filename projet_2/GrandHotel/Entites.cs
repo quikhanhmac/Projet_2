@@ -11,8 +11,10 @@ namespace GrandHotel
         public int Id { get; set; }
         public string Civilite { get; set; }
         public string Nom { get; set; }
-        public string Preonom { get; set; }
+        public string Prenom { get; set; }
         public byte CarteFidelite { get; set; }
+
+
     }
     public class Reservation
     {
@@ -44,7 +46,7 @@ namespace GrandHotel
         public int IdClient { get; set; }
         public DateTime DateFacture { get; set; }
         public DateTime DatePaiement { get; set; }
-        public string CodeModePaiement { get; set; }     
+        public string CodeModePaiement { get; set; }
     }
     public class LigneFacture
     {
@@ -70,7 +72,7 @@ namespace GrandHotel
         public string Numero { get; set; }
         public int IdClient { get; set; }
         public string CodeType { get; set; }
-        public int Pro { get; set; }     
+        public int Pro { get; set; }
     }
     public class Email
     {
@@ -89,4 +91,25 @@ namespace GrandHotel
             public decimal Prix { get; set; }
         }
     }
+    public class Coordonnees
+    {
+        public string Nom { get; set; }
+        public string Prenom { get; set; }
+        public string Numero { get; set; }
+        public string Adresse { get; set; }
+        public string Rue { get; set; }
+        public string CodePostal { get; set; }
+        public string Ville { get; set; }
+    }
+
+    //public class NouveauClient
+    //{
+    //    public int Id { get; set; }
+    //    public string Civilite { get; set; }
+    //    public string Nom { get; set; }
+    //    public string Prenom { get; set; }
+    //    public string Rue { get; set; }
+    //    public string CodePostal { get; set; }
+    //    public string Ville { get; set; }
+    //}
 }
