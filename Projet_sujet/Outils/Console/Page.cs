@@ -24,7 +24,12 @@ namespace Outils.TConsole
 		/// Affiche la page
 		/// </summary>
 		public abstract void Display();
-	}
+
+        public static implicit operator Page(global::GrandHotel.Pages.PageClient v)
+        {
+            throw new NotImplementedException();
+        }
+    }
 
 	/// <summary>
 	/// Modélise une page avec menu intégré
