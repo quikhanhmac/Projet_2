@@ -51,7 +51,7 @@ namespace GrandHotel.Pages
             int num = Contexte.NumeroClient();
 
 
-            // Creation nouvelle adresse
+            // Creation nouvelle adresse 
             Adresse a1 = new Adresse();
 
             a1.IdClient = num;
