@@ -19,17 +19,17 @@ namespace GrandHotel
         public int NumChambre { get; set; }
         public DateTime Jour { get; set; }
         public int IdClient { get; set; }
-        public int NbPersonne { get; set; }
-        public int HeureArrivee { get; set; }
+        public Int16 NbPersonne { get; set; }
+        public Int16 HeureArrivee { get; set; }
     }
     public class Chambre
     {
         public int Numero { get; set; }
-        public int Etage { get; set; }
+        public Int16 Etage { get; set; }
         public byte Bain { get; set; }
         public byte Douche { get; set; }
         public byte WC { get; set; }
-        public int NbLits { get; set; }
+        public Int16 NbLits { get; set; }
     }
     public class Adresse
     {
