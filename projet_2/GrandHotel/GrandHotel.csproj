@@ -70,5 +70,11 @@
       <Name>TConsole</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Projet_sujet\Outils\Console\TConsole.csproj">
+      <Project>{222adafa-6e7d-404c-a04d-db30bdf702a9}</Project>
+      <Name>TConsole</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

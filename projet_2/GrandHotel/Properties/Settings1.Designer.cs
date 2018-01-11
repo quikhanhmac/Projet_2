@@ -26,11 +26,11 @@ namespace GrandHotel.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\mssqllocaldb;Initial Catalog=GrandHotel;Integrated Security" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDb)\\MSSQLLocalDB;Initial Catalog=GrandHotel;Integrated Security" +
             "=True")]
-        public string GrandHotelConnect {
+        public string GrandHotelConnexion {
             get {
-                return ((string)(this["GrandHotelConnect"]));
+                return ((string)(this["GrandHotelConnexion"]));
             }
         }
     }

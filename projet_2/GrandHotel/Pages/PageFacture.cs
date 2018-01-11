@@ -7,11 +7,18 @@ using System.Threading.Tasks;
 
 namespace GrandHotel.Pages
 {
-    class PageFacture : MenuPage
+    class PageFacture
     {
-        public PageFacture() : base("Facture", false)
+        public PageFacture()
         {
-
+            //Menu.AddOption("1", "Liste des factures", () => AfficherFactures());
+                     
         }
+
+        //private void AfficherFactures()
+        //{
+        //    string liste = Input.Read<string>("Saisir la date de la facture");
+        //    ConsoleTable.From(liste).Display("Factures");
+        //}
     }
 }
