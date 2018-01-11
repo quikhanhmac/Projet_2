@@ -9,7 +9,7 @@ namespace GrandHotel.Pages
 {
     class PageFacture : MenuPage
     {
-        public PageFacture() : base("Facture")
+        public PageFacture() : base("Facture", false)
         {
 
         }

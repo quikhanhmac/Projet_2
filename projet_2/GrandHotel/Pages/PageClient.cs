@@ -9,7 +9,7 @@ namespace GrandHotel.Pages
 {
     public class PageClient : MenuPage
     {
-        public PageClient() : base("Client")
+        public PageClient() : base("Client", false)
         {
 
         }

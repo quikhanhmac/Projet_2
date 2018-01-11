@@ -25,10 +25,10 @@ namespace Outils.TConsole
 		/// </summary>
 		public abstract void Display();
 
-        public static implicit operator Page(global::GrandHotel.Pages.PageClient v)
-        {
-            throw new NotImplementedException();
-        }
+        //public static implicit operator Page(global::GrandHotel.Pages.PageClient v)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 
 	/// <summary>
