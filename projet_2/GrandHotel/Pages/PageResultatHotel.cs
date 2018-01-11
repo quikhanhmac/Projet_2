@@ -11,7 +11,7 @@ namespace GrandHotel.Pages
     {
         public PageResultatHotel(): base("ResultatHotel")
         {
-
+               //
         }
     }
 }
