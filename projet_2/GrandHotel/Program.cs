@@ -10,7 +10,7 @@ namespace GrandHotel
     {
         static void Main(string[] args)
         {
-           /*Lydia */
+           
         }
     }
 }
