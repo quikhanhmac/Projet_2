@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Contexte.cs" />
     <Compile Include="Entites.cs" />
+    <Compile Include="GrandHotelApp.cs" />
     <Compile Include="Pages\PageAcceuil.cs" />
     <Compile Include="Pages\PageClient.cs" />
     <Compile Include="Pages\PageFacture.cs" />
@@ -53,6 +54,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Projet_sujet\Outils\Console\TConsole.csproj">
+      <Project>{222adafa-6e7d-404c-a04d-db30bdf702a9}</Project>
+      <Name>TConsole</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
