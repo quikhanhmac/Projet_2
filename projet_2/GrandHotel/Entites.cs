@@ -79,14 +79,14 @@ namespace GrandHotel
         public Int16 Pro { get; set; }
     }
     public class TarifChambre
-    {        
+    {
         public Int16 NumChambre { get; set; }
         public string CodeTarif { get; set; }
         public class Tarif
-    {
-        public string Code { get; set; }
-        public DateTime DateDebut { get; set; }
-        public decimal Prix { get; set; }
+        {
+            public string Code { get; set; }
+            public DateTime DateDebut { get; set; }
+            public decimal Prix { get; set; }
+        }
     }
-
 }
