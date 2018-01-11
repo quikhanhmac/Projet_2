@@ -16,20 +16,20 @@ namespace GrandHotel
     }
     public class Reservation
     {
-        public Int16 NumChambre { get; set; }
+        public int NumChambre { get; set; }
         public DateTime Jour { get; set; }
         public int IdClient { get; set; }
-        public Int16 NbPersonne { get; set; }
-        public Int16 HeureArrivee { get; set; }
+        public int NbPersonne { get; set; }
+        public int HeureArrivee { get; set; }
     }
     public class Chambre
     {
-        public Int16 Numero { get; set; }
-        public Int16 Etage { get; set; }
+        public int Numero { get; set; }
+        public int Etage { get; set; }
         public byte Bain { get; set; }
         public byte Douche { get; set; }
         public byte WC { get; set; }
-        public Int16 NbLits { get; set; }
+        public int NbLits { get; set; }
     }
     public class Adresse
     {
@@ -50,7 +50,7 @@ namespace GrandHotel
     {
         public int IdFacture { get; set; }
         public int NumLigne { get; set; }
-        public Int16 Quantite { get; set; }
+        public int Quantite { get; set; }
         public decimal MontantHT { get; set; }
         public decimal TauxTVA { get; set; }
         public decimal TauxReduction { get; set; }
@@ -70,17 +70,17 @@ namespace GrandHotel
         public string Numero { get; set; }
         public int IdClient { get; set; }
         public string CodeType { get; set; }
-        public Int16 Pro { get; set; }     
+        public int Pro { get; set; }     
     }
     public class Email
     {
         public string Adresse { get; set; }
         public int IdClient { get; set; }
-        public Int16 Pro { get; set; }
+        public int Pro { get; set; }
     }
     public class TarifChambre
     {
-        public Int16 NumChambre { get; set; }
+        public int NumChambre { get; set; }
         public string CodeTarif { get; set; }
         public class Tarif
         {
