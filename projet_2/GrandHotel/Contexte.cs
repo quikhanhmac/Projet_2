@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace GrandHotel
 {
-    class Program
+    class Contexte
     {
-        static void Main(string[] args)
-        {
-            
-        }
     }
 }

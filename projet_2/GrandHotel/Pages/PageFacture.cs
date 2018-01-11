@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GrandHotel
+namespace GrandHotel.Pages
 {
-    class Program
+    class PageFacture
     {
-        static void Main(string[] args)
-        {
-            
-        }
     }
 }
