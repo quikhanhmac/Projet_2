@@ -9,7 +9,7 @@ namespace GrandHotel
     class Program
     {
         static void Main(string[] args)
-        {
+        {kkkk
             
         }
     }
