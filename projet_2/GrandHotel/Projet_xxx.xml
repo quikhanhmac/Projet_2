@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ClientsBD xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Client Id="1" Civilite="M" Nom="DUPONT" Prenom="Alain" CarteFidelite="0">
+    <Adresses Rue="123 rue du Général de Gaulle" CodePostal="78000" Ville="VERSAILLES" />
+    <Telephones>
+      <Telephone Numero="0144285252" Pro="0" />
+      <Telephone Numero="0145425663" Pro="0" />
+      <Telephone Numero="0559457224" Pro="0" />
+      <Telephone Numero="0744285250" Pro="0" />
+      <Telephone Numero="0759457242" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="alain.dupont@orange.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="1" Civilite="M" Nom="DUPONT" Prenom="Alain" CarteFidelite="0">
+    <Adresses Rue="123 rue du Général de Gaulle" CodePostal="78000" Ville="VERSAILLES" />
+    <Telephones>
+      <Telephone Numero="0144285252" Pro="0" />
+      <Telephone Numero="0145425663" Pro="0" />
+      <Telephone Numero="0559457224" Pro="0" />
+      <Telephone Numero="0744285250" Pro="0" />
+      <Telephone Numero="0759457242" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="alain.dupont@orange.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="1" Civilite="M" Nom="DUPONT" Prenom="Alain" CarteFidelite="0">
+    <Adresses Rue="123 rue du Général de Gaulle" CodePostal="78000" Ville="VERSAILLES" />
+    <Telephones>
+      <Telephone Numero="0144285252" Pro="0" />
+      <Telephone Numero="0145425663" Pro="0" />
+      <Telephone Numero="0559457224" Pro="0" />
+      <Telephone Numero="0744285250" Pro="0" />
+      <Telephone Numero="0759457242" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="alain.dupont@orange.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="1" Civilite="M" Nom="DUPONT" Prenom="Alain" CarteFidelite="0">
+    <Adresses Rue="123 rue du Général de Gaulle" CodePostal="78000" Ville="VERSAILLES" />
+    <Telephones>
+      <Telephone Numero="0144285252" Pro="0" />
+      <Telephone Numero="0145425663" Pro="0" />
+      <Telephone Numero="0559457224" Pro="0" />
+      <Telephone Numero="0744285250" Pro="0" />
+      <Telephone Numero="0759457242" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="alain.dupont@orange.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="1" Civilite="M" Nom="DUPONT" Prenom="Alain" CarteFidelite="0">
+    <Adresses Rue="123 rue du Général de Gaulle" CodePostal="78000" Ville="VERSAILLES" />
+    <Telephones>
+      <Telephone Numero="0144285252" Pro="0" />
+      <Telephone Numero="0145425663" Pro="0" />
+      <Telephone Numero="0559457224" Pro="0" />
+      <Telephone Numero="0744285250" Pro="0" />
+      <Telephone Numero="0759457242" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="alain.dupont@orange.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="2" Civilite="M" Nom="MARTIN" Prenom="Marc" CarteFidelite="0">
+    <Adresses Rue="Route de Pezenas - Batiment Optima" CodePostal="84524" Ville="VERGNOLLES CEDEX 452" />
+    <Telephones>
+      <Telephone Numero="0147662929" Pro="0" />
+      <Telephone Numero="0747662955" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="mmartin@transports_martin_fils.fr" Pro="0" />
+      <Email Adresse="plongeur@sfr.com" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="2" Civilite="M" Nom="MARTIN" Prenom="Marc" CarteFidelite="0">
+    <Adresses Rue="Route de Pezenas - Batiment Optima" CodePostal="84524" Ville="VERGNOLLES CEDEX 452" />
+    <Telephones>
+      <Telephone Numero="0147662929" Pro="0" />
+      <Telephone Numero="0747662955" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="mmartin@transports_martin_fils.fr" Pro="0" />
+      <Email Adresse="plongeur@sfr.com" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="2" Civilite="M" Nom="MARTIN" Prenom="Marc" CarteFidelite="0">
+    <Adresses Rue="Route de Pezenas - Batiment Optima" CodePostal="84524" Ville="VERGNOLLES CEDEX 452" />
+    <Telephones>
+      <Telephone Numero="0147662929" Pro="0" />
+      <Telephone Numero="0747662955" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="mmartin@transports_martin_fils.fr" Pro="0" />
+      <Email Adresse="plongeur@sfr.com" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="2" Civilite="M" Nom="MARTIN" Prenom="Marc" CarteFidelite="0">
+    <Adresses Rue="Route de Pezenas - Batiment Optima" CodePostal="84524" Ville="VERGNOLLES CEDEX 452" />
+    <Telephones>
+      <Telephone Numero="0147662929" Pro="0" />
+      <Telephone Numero="0747662955" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="mmartin@transports_martin_fils.fr" Pro="0" />
+      <Email Adresse="plongeur@sfr.com" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="5" Civilite="M" Nom="DREYFUS" Prenom="Jean" CarteFidelite="0">
+    <Adresses Rue="147 rue de Vaugirard" CodePostal="75015" Ville="PARIS" />
+    <Telephones>
+      <Telephone Numero="0151585250" Pro="0" />
+      <Telephone Numero="0492191848" Pro="0" />
+      <Telephone Numero="0792191858" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="pdreyfus@free.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="5" Civilite="M" Nom="DREYFUS" Prenom="Jean" CarteFidelite="0">
+    <Adresses Rue="147 rue de Vaugirard" CodePostal="75015" Ville="PARIS" />
+    <Telephones>
+      <Telephone Numero="0151585250" Pro="0" />
+      <Telephone Numero="0492191848" Pro="0" />
+      <Telephone Numero="0792191858" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="pdreyfus@free.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="5" Civilite="M" Nom="DREYFUS" Prenom="Jean" CarteFidelite="0">
+    <Adresses Rue="147 rue de Vaugirard" CodePostal="75015" Ville="PARIS" />
+    <Telephones>
+      <Telephone Numero="0151585250" Pro="0" />
+      <Telephone Numero="0492191848" Pro="0" />
+      <Telephone Numero="0792191858" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="pdreyfus@free.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="12" Civilite="M" Nom="DUVAL" Prenom="Arsène" CarteFidelite="0">
+    <Adresses Rue="44 rue du Général Michel Bizot" CodePostal="75012" Ville="PARIS" />
+    <Telephones>
+      <Telephone Numero="0148045424" Pro="0" />
+      <Telephone Numero="0148444141" Pro="0" />
+      <Telephone Numero="0611895854" Pro="0" />
+      <Telephone Numero="0648448619" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="aduval@free.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="12" Civilite="M" Nom="DUVAL" Prenom="Arsène" CarteFidelite="0">
+    <Adresses Rue="44 rue du Général Michel Bizot" CodePostal="75012" Ville="PARIS" />
+    <Telephones>
+      <Telephone Numero="0148045424" Pro="0" />
+      <Telephone Numero="0148444141" Pro="0" />
+      <Telephone Numero="0611895854" Pro="0" />
+      <Telephone Numero="0648448619" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="aduval@free.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="12" Civilite="M" Nom="DUVAL" Prenom="Arsène" CarteFidelite="0">
+    <Adresses Rue="44 rue du Général Michel Bizot" CodePostal="75012" Ville="PARIS" />
+    <Telephones>
+      <Telephone Numero="0148045424" Pro="0" />
+      <Telephone Numero="0148444141" Pro="0" />
+      <Telephone Numero="0611895854" Pro="0" />
+      <Telephone Numero="0648448619" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="aduval@free.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="12" Civilite="M" Nom="DUVAL" Prenom="Arsène" CarteFidelite="0">
+    <Adresses Rue="44 rue du Général Michel Bizot" CodePostal="75012" Ville="PARIS" />
+    <Telephones>
+      <Telephone Numero="0148045424" Pro="0" />
+      <Telephone Numero="0148444141" Pro="0" />
+      <Telephone Numero="0611895854" Pro="0" />
+      <Telephone Numero="0648448619" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="aduval@free.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="19" Civilite="M" Nom="COCINO" Prenom="Gérard" CarteFidelite="0">
+    <Adresses Rue="18 Rue Marc Sauzet" CodePostal="75008" Ville="PARIS" />
+    <Telephones>
+      <Telephone Numero="0493881515" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="gcocinom@pacwan.azur.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="21" Civilite="M" Nom="MALATERRE" Prenom="Arnaud" CarteFidelite="0">
+    <Adresses Rue="28 Rue Maréchal Foch" CodePostal="31800" Ville="SAINT GAUDENS" />
+    <Telephones>
+      <Telephone Numero="0490821226" Pro="0" />
+      <Telephone Numero="0690855916" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="sofalis@orange.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="21" Civilite="M" Nom="MALATERRE" Prenom="Arnaud" CarteFidelite="0">
+    <Adresses Rue="28 Rue Maréchal Foch" CodePostal="31800" Ville="SAINT GAUDENS" />
+    <Telephones>
+      <Telephone Numero="0490821226" Pro="0" />
+      <Telephone Numero="0690855916" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="sofalis@orange.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="27" Civilite="M" Nom="LECUYER" Prenom="Lionel" CarteFidelite="0">
+    <Adresses Rue="34 Rue Daguerre" CodePostal="92411" Ville="COURBEVOIE CEDEX" />
+    <Telephones>
+      <Telephone Numero="0476638383" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="cozet@infonie.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="28" Civilite="M" Nom="PRA-LETTRY" Prenom="Emmanuel" CarteFidelite="0">
+    <Adresses Rue="5 Carrefour de l'Odéon" CodePostal="06400" Ville="CANNES" />
+    <Telephones>
+      <Telephone Numero="0466531781" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="epralettrym@hotmail.com" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="30" Civilite="M" Nom="TROLLAT" Prenom="Hervé" CarteFidelite="0">
+    <Adresses Rue="30 Rue Edith Cavell" CodePostal="83000" Ville="TOULON" />
+    <Telephones>
+      <Telephone Numero="0142892525" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="herve.trollat@bouygues.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="32" Civilite="M" Nom="LEBAILLIF" Prenom="Christian" CarteFidelite="0">
+    <Adresses Rue="1 Rue du Pont Saint Pierre" CodePostal="91720" Ville="MAISSE" />
+    <Telephones>
+      <Telephone Numero="0170697542" Pro="0" />
+      <Telephone Numero="0745256565" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="jpfparis@free.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="32" Civilite="M" Nom="LEBAILLIF" Prenom="Christian" CarteFidelite="0">
+    <Adresses Rue="1 Rue du Pont Saint Pierre" CodePostal="91720" Ville="MAISSE" />
+    <Telephones>
+      <Telephone Numero="0170697542" Pro="0" />
+      <Telephone Numero="0745256565" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="jpfparis@free.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="35" Civilite="M" Nom="PICOT" Prenom="Dominique" CarteFidelite="0">
+    <Adresses Rue="55 Grande Rue" CodePostal="83100" Ville="TOULON" />
+    <Telephones>
+      <Telephone Numero="0467040730" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="alain.gardeur@orange.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="37" Civilite="M" Nom="VERNET" Prenom="Daniel" CarteFidelite="0">
+    <Adresses Rue="3 Rue du Général Henrion Bertier" CodePostal="86000" Ville="POITIERS" />
+    <Telephones>
+      <Telephone Numero="0144241140" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="maison-immobilier@icare.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="41" Civilite="M" Nom="PLATONOFF" Prenom="Philippe" CarteFidelite="0">
+    <Adresses Rue="C/O RICHARD ELLIS" CodePostal="92600" Ville="ASNIERES" />
+    <Telephones>
+      <Telephone Numero="0144545474" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="stonesandsun@mnet.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="44" Civilite="M" Nom="SPITHAKIS" Prenom="Jean-Paul" CarteFidelite="0">
+    <Adresses Rue="36 Rue Bapst" CodePostal="13410" Ville="LAMBESC" />
+    <Telephones>
+      <Telephone Numero="0494564427" Pro="0" />
+      <Telephone Numero="0694560295" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="terrains31@sfr.com" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="44" Civilite="M" Nom="SPITHAKIS" Prenom="Jean-Paul" CarteFidelite="0">
+    <Adresses Rue="36 Rue Bapst" CodePostal="13410" Ville="LAMBESC" />
+    <Telephones>
+      <Telephone Numero="0494564427" Pro="0" />
+      <Telephone Numero="0694560295" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="terrains31@sfr.com" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="45" Civilite="M" Nom="ORELL" Prenom="Olivier" CarteFidelite="0">
+    <Adresses Rue="Centre Commercial Aphrodite" CodePostal="97400" Ville="SAINT DENIS" />
+    <Telephones>
+      <Telephone Numero="0143212939" Pro="0" />
+      <Telephone Numero="0643279759" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="property@cybercom.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="45" Civilite="M" Nom="ORELL" Prenom="Olivier" CarteFidelite="0">
+    <Adresses Rue="Centre Commercial Aphrodite" CodePostal="97400" Ville="SAINT DENIS" />
+    <Telephones>
+      <Telephone Numero="0143212939" Pro="0" />
+      <Telephone Numero="0643279759" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="property@cybercom.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="48" Civilite="M" Nom="TARSAC" Prenom="René" CarteFidelite="0">
+    <Adresses Rue="140 Rue Jean Chatel" CodePostal="59800" Ville="LILLE" />
+    <Telephones>
+      <Telephone Numero="0467587700" Pro="0" />
+      <Telephone Numero="0767582813" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="ydern@free.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="48" Civilite="M" Nom="TARSAC" Prenom="René" CarteFidelite="0">
+    <Adresses Rue="140 Rue Jean Chatel" CodePostal="59800" Ville="LILLE" />
+    <Telephones>
+      <Telephone Numero="0467587700" Pro="0" />
+      <Telephone Numero="0767582813" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="ydern@free.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="52" Civilite="M" Nom="FORGEOT" Prenom="Jean-Bernard" CarteFidelite="0">
+    <Adresses Rue="266 Rue de Clèry" CodePostal="31000" Ville="TOULOUSE" />
+    <Telephones>
+      <Telephone Numero="0143217575" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="prodom@allia-com.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="53" Civilite="M" Nom="BERGER" Prenom="Jean-Pierre" CarteFidelite="0">
+    <Adresses Rue="15 Rue François Mouthon" CodePostal="95670" Ville="MARLY LA VILLE" />
+    <Telephones>
+      <Telephone Numero="0479853825" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="poquet@alpes-net.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="55" Civilite="M" Nom="MATHIEU" Prenom="Gérard" CarteFidelite="0">
+    <Adresses Rue="22 Rue Maurice Fonvielle" CodePostal="75008" Ville="PARIS" />
+    <Telephones>
+      <Telephone Numero="0146051144" Pro="0" />
+      <Telephone Numero="0648257992" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="athos2@msn.com" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="55" Civilite="M" Nom="MATHIEU" Prenom="Gérard" CarteFidelite="0">
+    <Adresses Rue="22 Rue Maurice Fonvielle" CodePostal="75008" Ville="PARIS" />
+    <Telephones>
+      <Telephone Numero="0146051144" Pro="0" />
+      <Telephone Numero="0648257992" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="athos2@msn.com" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="57" Civilite="M" Nom="PIERROT" Prenom="Robert" CarteFidelite="0">
+    <Adresses Rue="8 Rue Joseph Reboul" CodePostal="75116" Ville="PARIS" />
+    <Telephones>
+      <Telephone Numero="0145976531" Pro="0" />
+      <Telephone Numero="0465987521" Pro="0" />
+      <Telephone Numero="0768995221" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="stif@meteor.avo.net" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="57" Civilite="M" Nom="PIERROT" Prenom="Robert" CarteFidelite="0">
+    <Adresses Rue="8 Rue Joseph Reboul" CodePostal="75116" Ville="PARIS" />
+    <Telephones>
+      <Telephone Numero="0145976531" Pro="0" />
+      <Telephone Numero="0465987521" Pro="0" />
+      <Telephone Numero="0768995221" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="stif@meteor.avo.net" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="57" Civilite="M" Nom="PIERROT" Prenom="Robert" CarteFidelite="0">
+    <Adresses Rue="8 Rue Joseph Reboul" CodePostal="75116" Ville="PARIS" />
+    <Telephones>
+      <Telephone Numero="0145976531" Pro="0" />
+      <Telephone Numero="0465987521" Pro="0" />
+      <Telephone Numero="0768995221" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="stif@meteor.avo.net" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="59" Civilite="Mme" Nom="ZAMPIERO" Prenom="Annick" CarteFidelite="0">
+    <Adresses Rue="122 Rue Ferrari" CodePostal="61000" Ville="ALENCON" />
+    <Telephones>
+      <Telephone Numero="0142025447" Pro="0" />
+      <Telephone Numero="0142380202" Pro="0" />
+      <Telephone Numero="0642000874" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="euro-prospect@calva.net" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="59" Civilite="Mme" Nom="ZAMPIERO" Prenom="Annick" CarteFidelite="0">
+    <Adresses Rue="122 Rue Ferrari" CodePostal="61000" Ville="ALENCON" />
+    <Telephones>
+      <Telephone Numero="0142025447" Pro="0" />
+      <Telephone Numero="0142380202" Pro="0" />
+      <Telephone Numero="0642000874" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="euro-prospect@calva.net" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="59" Civilite="Mme" Nom="ZAMPIERO" Prenom="Annick" CarteFidelite="0">
+    <Adresses Rue="122 Rue Ferrari" CodePostal="61000" Ville="ALENCON" />
+    <Telephones>
+      <Telephone Numero="0142025447" Pro="0" />
+      <Telephone Numero="0142380202" Pro="0" />
+      <Telephone Numero="0642000874" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="euro-prospect@calva.net" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="61" Civilite="M" Nom="MECHRI" Prenom="Pierre" CarteFidelite="0">
+    <Adresses Rue="14 Rue André Michel" CodePostal="49300" Ville="CHOLET" />
+    <Telephones>
+      <Telephone Numero="0144158744" Pro="0" />
+      <Telephone Numero="0145774155" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="acces.immobilier@orange.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="61" Civilite="M" Nom="MECHRI" Prenom="Pierre" CarteFidelite="0">
+    <Adresses Rue="14 Rue André Michel" CodePostal="49300" Ville="CHOLET" />
+    <Telephones>
+      <Telephone Numero="0144158744" Pro="0" />
+      <Telephone Numero="0145774155" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="acces.immobilier@orange.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="64" Civilite="M" Nom="VILLE" Prenom="Jean-Paul" CarteFidelite="0">
+    <Adresses Rue="62 Rue Nationale" CodePostal="45390" Ville="PUISEAUX" />
+    <Telephones>
+      <Telephone Numero="0491938472" Pro="0" />
+      <Telephone Numero="0791881057" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="jpville@laposte.net" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="64" Civilite="M" Nom="VILLE" Prenom="Jean-Paul" CarteFidelite="0">
+    <Adresses Rue="62 Rue Nationale" CodePostal="45390" Ville="PUISEAUX" />
+    <Telephones>
+      <Telephone Numero="0491938472" Pro="0" />
+      <Telephone Numero="0791881057" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="jpville@laposte.net" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="65" Civilite="M" Nom="NOCENTINI" Prenom="Alain" CarteFidelite="0">
+    <Adresses Rue="101 Rue de Miromesnil" CodePostal="02600" Ville="VILLERS COTTERETS" />
+    <Telephones>
+      <Telephone Numero="0153689999" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="joussely@free.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="67" Civilite="M" Nom="RECHUL" Prenom="Jacques" CarteFidelite="0">
+    <Adresses Rue="3 Rue de Paris" CodePostal="33000" Ville="BORDEAUX" />
+    <Telephones>
+      <Telephone Numero="0147009132" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="marcimmo@ebc.net" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="73" Civilite="M" Nom="THOMASSE" Prenom="Jean-Claude" CarteFidelite="0">
+    <Adresses Rue="5 Rue Sonoys" CodePostal="94120" Ville="FONTENAY SOUS BOIS" />
+    <Telephones>
+      <Telephone Numero="0556577196" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="dgtb@hotmail.com" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="75" Civilite="M" Nom="MARTIN" Prenom="Jean-Pierre" CarteFidelite="0">
+    <Adresses Rue="29 Lycée Georges Pompidou" CodePostal="75116" Ville="PARIS" />
+    <Telephones>
+      <Telephone Numero="0556350221" Pro="0" />
+      <Telephone Numero="0656952954" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="elfio@dugudu.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="75" Civilite="M" Nom="MARTIN" Prenom="Jean-Pierre" CarteFidelite="0">
+    <Adresses Rue="29 Lycée Georges Pompidou" CodePostal="75116" Ville="PARIS" />
+    <Telephones>
+      <Telephone Numero="0556350221" Pro="0" />
+      <Telephone Numero="0656952954" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="elfio@dugudu.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="78" Civilite="M" Nom="FARGETTON" Prenom="Denis" CarteFidelite="0">
+    <Adresses Rue="20 Rue Léonard de Vinci" CodePostal="75015" Ville="PARIS" />
+    <Telephones>
+      <Telephone Numero="0321715111" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="dpr@magousta.com" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="79" Civilite="M" Nom="LEPERCQ" Prenom="Jean-Claude" CarteFidelite="0">
+    <Adresses Rue="60 Place du Jourdain" CodePostal="26000" Ville="VALENCE" />
+    <Telephones>
+      <Telephone Numero="0494960461" Pro="0" />
+      <Telephone Numero="0794491745" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="alain.forqueville@calva.com" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="79" Civilite="M" Nom="LEPERCQ" Prenom="Jean-Claude" CarteFidelite="0">
+    <Adresses Rue="60 Place du Jourdain" CodePostal="26000" Ville="VALENCE" />
+    <Telephones>
+      <Telephone Numero="0494960461" Pro="0" />
+      <Telephone Numero="0794491745" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="alain.forqueville@calva.com" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="89" Civilite="M" Nom="COUASSE" Prenom="François" CarteFidelite="0">
+    <Adresses Rue="La Grande Ferme" CodePostal="06800" Ville="CAGNES SUR MER" />
+    <Telephones>
+      <Telephone Numero="0557771222" Pro="0" />
+      <Telephone Numero="0757771223" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="herbert@wise.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="89" Civilite="M" Nom="COUASSE" Prenom="François" CarteFidelite="0">
+    <Adresses Rue="La Grande Ferme" CodePostal="06800" Ville="CAGNES SUR MER" />
+    <Telephones>
+      <Telephone Numero="0557771222" Pro="0" />
+      <Telephone Numero="0757771223" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="herbert@wise.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="95" Civilite="M" Nom="AIACH" Prenom="Alexandre" CarteFidelite="0">
+    <Adresses Rue="32 Bd Maréchal Juin" CodePostal="92190" Ville="MEUDON" />
+    <Telephones>
+      <Telephone Numero="0491525152" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="djin@telecom.fr" Pro="0" />
+    </Emails>
+  </Client>
+  <Client Id="99" Civilite="M" Nom="CHANTEPIE" Prenom="Yanis" CarteFidelite="0">
+    <Adresses Rue="4 Place de la Liberté" CodePostal="30000" Ville="NIMES" />
+    <Telephones>
+      <Telephone Numero="0143461603" Pro="0" />
+    </Telephones>
+    <Emails>
+      <Email Adresse="amoebius@free.fr" Pro="0" />
+    </Emails>
+  </Client>
+</ClientsBD>

@@ -20,7 +20,7 @@ namespace GrandHotel
             Page accueil = new PageAccueil();
             app.AddPage(accueil);
             app.AddPage(new PageClient());
-            app.AddPage(new PageFacture());
+         //   app.AddPage(new PageFacture());
             app.AddPage(new PageResultatHotel());
 
             // Affichage de la page d'accueil

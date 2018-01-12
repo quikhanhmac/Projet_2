@@ -1,6 +1,7 @@
 ﻿using Outils.TConsole;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,9 +15,14 @@ namespace GrandHotel.Pages
             //Choix utilisateur
             Menu.AddOption("1", "Liste des clients", AfficherClients);
             Menu.AddOption("2", "Coordonnees d'un client", CoordonneesClient);
-            Menu.AddOption("3", "Création nouveau client", CreationClient);
+            Menu.AddOption("3", "Ajouter nouveau client", AjoutClient);
             Menu.AddOption("4", "Ajouter un numero telephone ou un mail", AjoutTelephoneMail);
+            Menu.AddOption("5", "Supprimer un client et ses coordonnées", SupprimmerClient);
+            Menu.AddOption("6", "Exporter la liste des clients", ExporterListClient);
         }
+
+      
+
         private void AfficherClients()
         {
             //Appel de la methode
@@ -28,11 +34,11 @@ namespace GrandHotel.Pages
         {
             //Demande de saisie utilisateur
             int idclient1 = Input.Read<int>("Veuillez donner un numero d'identifiant client: ");
-            List<Coordonnees> coordonnees = Contexte.GetCoordonneesClient(idclient1);
+            List<Coordonnees> coordonnees =  Contexte.GetCoordonneesClient(idclient1);
             ConsoleTable.From(coordonnees, "Coordonnees").Display("Coordonnees");
         }
 
-        private void CreationClient()
+        private void AjoutClient()
         {
             Output.WriteLine("Saisissez les informations du client :");
 
@@ -60,7 +66,7 @@ namespace GrandHotel.Pages
             a1.Ville = Input.Read<string>("Ville :");
 
             Contexte.AjouterAdresse(a1);
-            Output.WriteLine(ConsoleColor.Green, "Adresse créée avec succès");
+            Output.WriteLine(ConsoleColor.Green, "Adresse crée avec succès");
             Output.WriteLine("");
 
         }
@@ -68,44 +74,79 @@ namespace GrandHotel.Pages
         private void AjoutTelephoneMail()
         {
 
-            Console.WriteLine("1-Ajouter Telephone \t 2-mail");
+            Console.WriteLine("Taper: \n\t 1-->Ajouter numero telephone \n\t 2--> un mail");
             string saisie = Console.ReadLine();
-
-            switch (saisie)
+            List<Client> clients = Contexte.GetClients();
+            var client = new Client();
+            int idclient = Input.Read<int>("Veuillez donner un numero d'identifiant client: ");
+            var listIdClient = Contexte.GetIdClient();
+            foreach(var id in listIdClient)
             {
-                case "1":
-                    List<Client> clients = Contexte.GetClients();
-                    int idclient3 = Input.Read<int>("Veuillez donner un numero d'identifiant client: ");
-                    Telephone t = new Telephone();
-                    t.IdClient = idclient3;
-                    t.Numero = Input.Read<string>("Veuillez donner un numero de telephone client: ");
-                    t.CodeType = Input.Read<string>("Veuillez donner le type de telephone client(M mobile, F fixe): ");
-                    t.Pro = Input.Read<byte>("Sagit-il d'un numero professionnel(0/1): ");
+                if (id == idclient)
+                {
+                    switch (saisie)
+                    {
+                        case "1":
 
-                    Contexte.GetAjouterTelephone(t);
+                            Telephone t = new Telephone();
+                            t.IdClient = idclient;
+                            t.Numero = Input.Read<string>("Veuillez donner un numero de telephone client: ");
+                            t.CodeType = Input.Read<string>("Veuillez donner le type de telephone client(M mobile, F fixe): ");
+                            t.Pro = Input.Read<byte>("Sagit-il d'un numero professionnel(0/1): ");
 
-                    break;
+                            Contexte.GetAjouterTelephone(t);
 
-                case "2":
-                    List<Client> clients2 = Contexte.GetClients();
-                    int idclient4 = Input.Read<int>("Veuillez donner un numero d'identifiant client: ");
-                    Email e = new Email();
-                    e.IdClient = idclient4;
-                    e.Adresse = Input.Read<string>("Veuillez donner un numero de mail client: ");
-                    e.Pro = Input.Read<byte>("Sagit-il d'un mail professionnel(0/1): ");
+                            break;
 
-                    Contexte.GetAjouterMail(e);
-                    break;
+                        case "2":
 
+                            Email e = new Email();
+                            e.IdClient = idclient;
+                            e.Adresse = Input.Read<string>("Veuillez donner un numero de mail client: ");
+                            e.Pro = Input.Read<byte>("Sagit-il d'un mail professionnel(0/1): ");
+
+                            Contexte.GetAjouterMail(e);
+                            break;
+
+                    }
+                }
+               
             }
+           
+        }
 
+        public void ExporterListClient()
+        {
+            //Appel de la methode
+            List<Client> listCli= Contexte.GetClientsCoordonnees();
+            Contexte.ExporterXml(listCli);
+            
+        }
 
-
-
-
+        public void SupprimmerClient()
+        {
+          
+            int id = Input.Read<int>("Id du client à supprimer :");
+            //Contexte.SupprimerClient(id);
+            try
+            {
+                Contexte.SupprimerClient(id);
+            }
+            catch (SqlException e)
+            {
+                GérerErreurSql(e);
+            }
         }
 
 
+        private void GérerErreurSql(SqlException ex)
+        {
+            if (ex.Number == 547)
+                Output.WriteLine(ConsoleColor.Red,
+                    "Le produit ne peut pas être supprimé car il est référencé par une commande");
+            else
+                throw ex;
+        }
     }
 
 }

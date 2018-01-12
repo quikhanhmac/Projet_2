@@ -3,18 +3,39 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Xml.Serialization;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 namespace GrandHotel
 {
     public class Client
     {
+        [XmlAttribute]
         public int Id { get; set; }
+        [XmlAttribute]
         public string Civilite { get; set; }
+        [XmlAttribute]
         public string Nom { get; set; }
+        [XmlAttribute]
         public string Prenom { get; set; }
+        [XmlAttribute]
         public byte CarteFidelite { get; set; }
 
+        [XmlIgnore]
+        [Display(ShortName= "None")]
+        public Telephone Telephone { get; set; }
+        [XmlIgnore]
+        [Display(ShortName = "None")]
+        public Email Email { get; set; }
 
+        [Display(ShortName = "None")]
+        public Adresse Adresses { get; set; }
+
+        [Display(ShortName = "None")]
+        public List<Telephone> Telephones { get; set; }
+
+        [Display(ShortName = "None")]
+        public List<Email> Emails { get; set; }
     }
     public class Reservation
     {
@@ -33,11 +54,16 @@ namespace GrandHotel
         public byte WC { get; set; }
         public Int16 NbLits { get; set; }
     }
+
     public class Adresse
     {
+        [XmlIgnore]
         public int IdClient { get; set; }
+        [XmlAttribute]
         public string Rue { get; set; }
+        [XmlAttribute]
         public string CodePostal { get; set; }
+        [XmlAttribute]
         public string Ville { get; set; }
     }
     public class Facture
@@ -69,27 +95,35 @@ namespace GrandHotel
     }
     public class Telephone
     {
+        [XmlAttribute]
         public string Numero { get; set; }
+        [XmlIgnore]
         public int IdClient { get; set; }
+        [XmlAttribute]
         public string CodeType { get; set; }
+        [XmlAttribute]
         public int Pro { get; set; }
     }
     public class Email
     {
+        [XmlAttribute]
         public string Adresse { get; set; }
+        [XmlIgnore]
         public int IdClient { get; set; }
+        [XmlAttribute]
         public int Pro { get; set; }
     }
     public class TarifChambre
     {
         public int NumChambre { get; set; }
         public string CodeTarif { get; set; }
-        public class Tarif
-        {
-            public string Code { get; set; }
-            public DateTime DateDebut { get; set; }
-            public decimal Prix { get; set; }
-        }
+       
+    }
+    public class Tarif
+    {
+        public string Code { get; set; }
+        public DateTime DateDebut { get; set; }
+        public decimal Prix { get; set; }
     }
     public class Coordonnees
     {

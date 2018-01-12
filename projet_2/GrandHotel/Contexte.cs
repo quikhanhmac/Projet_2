@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Runtime;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 using GrandHotel.Properties;
 
 namespace GrandHotel
 {
-
+    public enum Operation { adresse, telephone, email }
     public class Contexte
     {
+        #region GESTION DES CLIENTS
         public static List<Client> GetClients()
         {
             var list = new List<Client>();
@@ -23,7 +26,7 @@ namespace GrandHotel
 							order by 1";
 
 
-            using (var conn = new SqlConnection(Settings1.Default.GrandHotelConnect))
+            using (var conn = new SqlConnection(Settings1.Default.GrandHotelConnexion))
             {
                 //Connection à la base de données
                 cmd.Connection = conn;
@@ -66,7 +69,7 @@ namespace GrandHotel
                 Value = idclient1
             });
 
-            using (var conn = new SqlConnection(Settings1.Default.GrandHotelConnect))
+            using (var conn = new SqlConnection(Settings1.Default.GrandHotelConnexion))
             {
                 cmd.Connection = conn;
                 conn.Open();
@@ -106,7 +109,7 @@ namespace GrandHotel
             cmd.Parameters.Add(new SqlParameter { SqlDbType = SqlDbType.NVarChar, ParameterName = "@Nom", Value = c1.Nom });
             cmd.Parameters.Add(new SqlParameter { SqlDbType = SqlDbType.NVarChar, ParameterName = "@Prenom", Value = c1.Prenom });
 
-            using (var cnx = new SqlConnection(Settings1.Default.GrandHotelConnect))
+            using (var cnx = new SqlConnection(Settings1.Default.GrandHotelConnexion))
             {
                 cmd.Connection = cnx;
                 cnx.Open();
@@ -124,7 +127,7 @@ namespace GrandHotel
                                 order by 1 desc";
 
 
-            using (var cnx = new SqlConnection(Settings1.Default.GrandHotelConnect))
+            using (var cnx = new SqlConnection(Settings1.Default.GrandHotelConnexion))
             {
                 cmd.Connection = cnx;
                 cnx.Open();
@@ -146,7 +149,7 @@ namespace GrandHotel
             cmd.Parameters.Add(new SqlParameter { SqlDbType = SqlDbType.NVarChar, ParameterName = "@CodePostal", Value = a1.CodePostal });
             cmd.Parameters.Add(new SqlParameter { SqlDbType = SqlDbType.NVarChar, ParameterName = "@Ville", Value = a1.Ville });
 
-            using (var cnx = new SqlConnection(Settings1.Default.GrandHotelConnect))
+            using (var cnx = new SqlConnection(Settings1.Default.GrandHotelConnexion))
             {
                 cmd.Connection = cnx;
                 cnx.Open();
@@ -167,12 +170,34 @@ namespace GrandHotel
             cmd.Parameters.Add(new SqlParameter { SqlDbType = SqlDbType.NVarChar, ParameterName = "@CodeType", Value = t.CodeType });
             cmd.Parameters.Add(new SqlParameter { SqlDbType = SqlDbType.Bit, ParameterName = "@Pro", Value = t.Pro });
 
-            using (var cnx = new SqlConnection(Settings1.Default.GrandHotelConnect))
+            using (var cnx = new SqlConnection(Settings1.Default.GrandHotelConnexion))
             {
                 cmd.Connection = cnx;
                 cnx.Open();
                 cmd.ExecuteNonQuery();
             }
+        }
+        public static List<int> GetIdClient()
+        {
+            var list = new List<int>();
+            var cmd = new SqlCommand();
+            // Demande de la liste des clients
+            cmd.CommandText = @"select Id from Client";
+            using (var conn = new SqlConnection(Settings1.Default.GrandHotelConnexion))
+            {
+                //Connection à la base de données
+                cmd.Connection = conn;
+                conn.Open();
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        list.Add((int)reader["Id"]);
+                    }
+                }
+            }
+            return list;
         }
 
         public static void GetAjouterMail(Email e)
@@ -187,7 +212,7 @@ namespace GrandHotel
             cmd.Parameters.Add(new SqlParameter { SqlDbType = SqlDbType.NVarChar, ParameterName = "@Adresse", Value = e.Adresse });
             cmd.Parameters.Add(new SqlParameter { SqlDbType = SqlDbType.Bit, ParameterName = "@Pro", Value = e.Pro });
 
-            using (var cnx = new SqlConnection(Settings1.Default.GrandHotelConnect))
+            using (var cnx = new SqlConnection(Settings1.Default.GrandHotelConnexion))
             {
                 cmd.Connection = cnx;
                 cnx.Open();
@@ -195,8 +220,210 @@ namespace GrandHotel
             }
         }
 
+        // Requête delete - suppression d'un produit
+        // Si le produit est référencé par une commande, la requête lève une
+        // SqlException avec le N°547, qu'on intercepte dans le code appelant
+        public static void SupprimerClient(int id)
+        {
+            // Préparation des commandes
+            var com1 = new SqlCommand();
+            com1.CommandText = @"delete from Client where Id = @id";
+            com1.Parameters.Add(new SqlParameter
+            {
+                SqlDbType = SqlDbType.Int,
+                ParameterName = "@id",
+                Value = id
+            });
 
-        /*==============================================Lydia Methodes===============================================*/
+            var com2 = new SqlCommand();
+            com2.CommandText = @"delete from Adresse where IdClient = @id";
+            com2.Parameters.Add(new SqlParameter
+            {
+                SqlDbType = SqlDbType.Int,
+                ParameterName = "@id",
+                Value = id
+            });
+            var com3 = new SqlCommand();
+            com3.CommandText = @"delete from Telephone where IdClient = @id";
+            com3.Parameters.Add(new SqlParameter
+            {
+                SqlDbType = SqlDbType.Int,
+                ParameterName = "@id",
+                Value = id
+            });
+            var com4 = new SqlCommand();
+            com4.CommandText = @"delete from Email where IdClient = @id";
+            com4.Parameters.Add(new SqlParameter
+            {
+                SqlDbType = SqlDbType.Int,
+                ParameterName = "@id",
+                Value = id
+            });
+            using (var cnx = new SqlConnection(Settings1.Default.GrandHotelConnexion))
+            {
+                // Ouverture de la connexion, et affectation aux commandes
+                cnx.Open();
+                com1.Connection = cnx;
+                com2.Connection = cnx;
+                com3.Connection = cnx;
+                com4.Connection = cnx;
+                // Transaction
+                using (SqlTransaction tran = cnx.BeginTransaction())
+                {
+                    // Exécution des commandes, en leur affectant la transaction
+                    com1.Transaction = tran;
+                    com1.ExecuteNonQuery();
+
+                    com2.Transaction = tran;
+                    com2.ExecuteNonQuery();
+
+                    com3.Transaction = tran;
+                    com3.ExecuteNonQuery();
+
+                    com4.Transaction = tran;
+                    com4.ExecuteNonQuery();
+
+                    // Validation de la transaction
+                    tran.Commit();
+                }
+            }
+        }
+
+
+
+        public static void ExporterXml(List<Client> listCol)
+        {
+            // On crée un sérialiseur, en spécifiant le type de l'objet à sérialiser
+            // et le nom de l'élément xml racine
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Client>),
+                                       new XmlRootAttribute("ClientsBD"));
+
+            using (var sw = new StreamWriter(@"..\..\ListeClients.xml"))
+            {
+                serializer.Serialize(sw, listCol);
+            }
+        }
+
+        public static List<Client> GetClientsCoordonnees()
+        {
+            var list = new List<Client>();
+            var cmd = new SqlCommand();
+            // Demande de la liste des clients
+            cmd.CommandText = @"select C.Id, C.Civilite, C.Nom, C.Prenom, C.CarteFidelite, 
+                                A.Rue, A.CodePostal, A.Ville, T.Numero, E.Adresse
+                                from Client C
+                                inner join Adresse A on A.IdClient = C.Id
+                                inner join Telephone T on T.IdClient = C.Id
+                                inner join Email E on E.IdClient = C.Id
+                                 order by C.Id";
+
+
+            using (var conn = new SqlConnection(Settings1.Default.GrandHotelConnexion))
+            {
+                //Connection à la base de données
+                cmd.Connection = conn;
+                conn.Open();
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        // int Id = (int)reader["Id"];
+                        // Client cli = null;
+
+                        var item = new Client();
+                        item.Id = (int)reader["Id"];
+                        item.Adresses = new Adresse();
+                        item.Telephones = new List<Telephone>();
+                        item.Emails = new List<Email>();
+                        item.Civilite = (string)reader["Civilite"];
+                        item.Nom = (string)reader["Nom"];
+                        item.Prenom = (string)reader["Prenom"];
+                        item.Adresses.Rue = (string)reader["Rue"];
+                        item.Adresses.CodePostal = (string)reader["CodePostal"];
+                        item.Adresses.Ville = (string)reader["Ville"];
+
+                        item.Telephones = GetListNumero(item.Id);
+
+                        item.Emails = GetListEmail(item.Id);
+
+                        list.Add(item);
+                    }
+                }
+            }
+
+            return list;
+        }
+
+        private static List<Telephone> GetListNumero(int idCli)
+        {
+            var list = new List<Telephone>();
+            // Demande de la liste des clients
+            var cmd = new SqlCommand();
+            cmd.CommandText = @"select  T.Numero
+                                from Client C
+                                inner join Adresse A on A.IdClient = C.Id
+                                inner join Telephone T on T.IdClient = C.Id
+                                where C.Id= @IdClient";
+            cmd.Parameters.Add(new SqlParameter { SqlDbType = SqlDbType.Int, ParameterName = "@IdClient", Value = idCli });
+            using (var conn = new SqlConnection(Settings1.Default.GrandHotelConnexion))
+            {
+                //Connection à la base de données
+                cmd.Connection = conn;
+                conn.Open();
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+
+                        var item = new Telephone();
+                        item.Numero = (string)reader["Numero"];
+
+                        list.Add(item);
+                    }
+                }
+            }
+            return list;
+        }
+
+        private static List<Email> GetListEmail(int idCli)
+        {
+            var list = new List<Email>();
+            // Demande de la liste des clients
+            var cmd = new SqlCommand();
+            cmd.CommandText = @"select E.Adresse
+                                from Client C
+                                inner join Adresse A on A.IdClient = C.Id
+                                inner join Email E on E.IdClient = C.Id
+                                where C.Id= @IdClient";
+            cmd.Parameters.Add(new SqlParameter { SqlDbType = SqlDbType.Int, ParameterName = "@IdClient", Value = idCli });
+            using (var conn = new SqlConnection(Settings1.Default.GrandHotelConnexion))
+            {
+                //Connection à la base de données
+                cmd.Connection = conn;
+                conn.Open();
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+
+                        var item = new Email();
+                        item.Adresse = (string)reader["Adresse"];
+
+                        list.Add(item);
+                    }
+                }
+            }
+            return list;
+        }
+        #endregion
+   
+
+
+
+
+
+     
 
         //public class Contexte
         //{
@@ -306,9 +533,9 @@ namespace GrandHotel
         //}
 
 
-        /*==============================================Lydia Methodes===============================================*/
-    }
 
+    }
 }
+
 
 
