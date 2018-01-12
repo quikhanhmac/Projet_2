@@ -21,8 +21,6 @@ namespace GrandHotel.Pages
             Menu.AddOption("6", "Exporter la liste des clients", ExporterListClient);
         }
 
-      
-
         private void AfficherClients()
         {
             //Appel de la methode
@@ -30,11 +28,12 @@ namespace GrandHotel.Pages
             //Affiche sous forme d'un tableau
             ConsoleTable.From(clients, "Clients").Display("Clients");
         }
+
         private void CoordonneesClient()
         {
             //Demande de saisie utilisateur
             int idclient1 = Input.Read<int>("Veuillez donner un numero d'identifiant client: ");
-            List<Coordonnees> coordonnees =  Contexte.GetCoordonneesClient(idclient1);
+            List<Coordonnees> coordonnees = Contexte.GetCoordonneesClient(idclient1);
             ConsoleTable.From(coordonnees, "Coordonnees").Display("Coordonnees");
         }
 
@@ -73,14 +72,16 @@ namespace GrandHotel.Pages
 
         private void AjoutTelephoneMail()
         {
-
+            //Demande de choisir entre un numero de tel et un mail
             Console.WriteLine("Taper: \n\t 1-->Ajouter numero telephone \n\t 2--> un mail");
             string saisie = Console.ReadLine();
             List<Client> clients = Contexte.GetClients();
             var client = new Client();
             int idclient = Input.Read<int>("Veuillez donner un numero d'identifiant client: ");
             var listIdClient = Contexte.GetIdClient();
-            foreach(var id in listIdClient)
+
+            //Verification parmis la liste des id clients celui qui est renseigné par l'utilisateur
+            foreach (var id in listIdClient)
             {
                 if (id == idclient)
                 {
@@ -94,7 +95,7 @@ namespace GrandHotel.Pages
                             t.CodeType = Input.Read<string>("Veuillez donner le type de telephone client(M mobile, F fixe): ");
                             t.Pro = Input.Read<byte>("Sagit-il d'un numero professionnel(0/1): ");
 
-                            Contexte.GetAjouterTelephone(t);
+                            Contexte.AjouterTelephone(t);
 
                             break;
 
@@ -110,22 +111,22 @@ namespace GrandHotel.Pages
 
                     }
                 }
-               
+
             }
-           
+
         }
 
         public void ExporterListClient()
         {
             //Appel de la methode
-            List<Client> listCli= Contexte.GetClientsCoordonnees();
+            List<Client> listCli = Contexte.GetClientsCoordonnees();
             Contexte.ExporterXml(listCli);
-            
+
         }
 
         public void SupprimmerClient()
         {
-          
+
             int id = Input.Read<int>("Id du client à supprimer :");
             //Contexte.SupprimerClient(id);
             try
@@ -137,7 +138,6 @@ namespace GrandHotel.Pages
                 GérerErreurSql(e);
             }
         }
-
 
         private void GérerErreurSql(SqlException ex)
         {

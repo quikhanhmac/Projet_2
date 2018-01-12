@@ -16,6 +16,7 @@ namespace GrandHotel
     public class Contexte
     {
         #region GESTION DES CLIENTS
+        /*---> Renvoie les liste des clients de GRANDHOTEL*/
         public static List<Client> GetClients()
         {
             var list = new List<Client>();
@@ -24,7 +25,6 @@ namespace GrandHotel
             cmd.CommandText = @"select S.Id, S.Civilite, S.Nom, S.Prenom
 							from Client S
 							order by 1";
-
 
             using (var conn = new SqlConnection(Settings1.Default.GrandHotelConnexion))
             {
@@ -50,10 +50,12 @@ namespace GrandHotel
             return list;
         }
 
+        /*--> Renvoie la liste de coordonnees dans client donné*/
         public static List<Coordonnees> GetCoordonneesClient(int idclient1)
         {
             var list = new List<Coordonnees>();
             var cmd = new SqlCommand();
+            // Demande de la liste des clients avec adresse
             cmd.CommandText = @"select C.Nom, C.Prenom, T.Numero, E.Adresse, A.Rue, A.CodePostal, A.Ville
                             from Client C
                             inner join Telephone T on C.Id=T.IdClient
@@ -96,11 +98,12 @@ namespace GrandHotel
             return list;
         }
 
+        /*--> Ajoute un client*/
         public static void AjouterClient(Client c1)
         {
             var cmd = new SqlCommand();
 
-
+            // methode de creation d'un nouveau client
             cmd.CommandText = @"insert Client (Civilite, Nom, Prenom)
 									values (@Civilite, @Nom, @Prenom)";
 
@@ -117,15 +120,15 @@ namespace GrandHotel
             }
         }
 
+        /*--> Renvoie le plus Id client utilise pour ajouter une adresse à un client*/
         public static int NumeroClient()
         {
             var cmd = new SqlCommand();
 
-
+            // Determination du plus grand id client
             cmd.CommandText = @"select top (1) Id
 							    from Client
                                 order by 1 desc";
-
 
             using (var cnx = new SqlConnection(Settings1.Default.GrandHotelConnexion))
             {
@@ -135,11 +138,10 @@ namespace GrandHotel
             }
         }
 
-
+        /*--> Ajouter une adresse à l'entité Adresse*/
         public static void AjouterAdresse(Adresse a1)
         {
             var cmd = new SqlCommand();
-
 
             cmd.CommandText = @"insert Adresse (IdClient, Rue, CodePostal, Ville)
 									values (@IdClient, @Rue, @CodePostal, @Ville)";
@@ -157,11 +159,11 @@ namespace GrandHotel
             }
         }
 
-        public static void GetAjouterTelephone(Telephone t)
+        /*--> Ajouter un numero de téléphone */
+        public static void AjouterTelephone(Telephone t)
         {
             var cmd = new SqlCommand();
-
-
+            
             cmd.CommandText = @"insert Telephone (IdClient, Numero, CodeType, Pro)
 									values (@IdClient, @Numero, @CodeType, @Pro)";
 
@@ -177,6 +179,7 @@ namespace GrandHotel
                 cmd.ExecuteNonQuery();
             }
         }
+
         public static List<int> GetIdClient()
         {
             var list = new List<int>();
@@ -220,7 +223,7 @@ namespace GrandHotel
             }
         }
 
-        // Requête delete - suppression d'un produit
+        // Requête delete - suppression d'un client , son adresse, son numero de téléphone et son email placer dans une transaction
         // Si le produit est référencé par une commande, la requête lève une
         // SqlException avec le N°547, qu'on intercepte dans le code appelant
         public static void SupprimerClient(int id)
@@ -288,9 +291,7 @@ namespace GrandHotel
                 }
             }
         }
-
-
-
+        
         public static void ExporterXml(List<Client> listCol)
         {
             // On crée un sérialiseur, en spécifiant le type de l'objet à sérialiser
@@ -417,58 +418,192 @@ namespace GrandHotel
             return list;
         }
         #endregion
-   
+
+        #region GESTION DES FACTURES
+        /*Cette methode prend en parametre l'identifaint d'un client et renvoie la liste */
+        public static List<Facture> GetFactures(int idClient, int date)
+        {
+            var listeFacture = new List<Facture>();
+            // Création d'une commande et definition de code sql à exécuter
+            var cmd = new SqlCommand();
+            cmd.CommandText = @" SELECT f.IdClient,f.Id,f.DateFacture,f.DatePaiement,f.CodeModePaiement
+                                FROM Facture f
+                                INNER JOIN Client c ON c.Id = f.IdClient
+                                WHERE c.Id =@idClient and year(f.DateFacture)=@date
+								order by f.Id";
+            // Création des paramètres 
+            cmd.Parameters.Add(new SqlParameter { SqlDbType = SqlDbType.Int, ParameterName = "@date", Value = date, });
+            cmd.Parameters.Add(new SqlParameter { SqlDbType = SqlDbType.Int, ParameterName = "@idClient", Value = idClient, });
+            using (var conn = new SqlConnection(Settings1.Default.GrandHotelConnexion))
+            {
+                // Affection d'une connexion à la commande
+                cmd.Connection = conn;
+                // Ouverture d'une connexion
+                conn.Open();
+                // Execution d'une commande en récupérant son résultat dans un objet SqlDataRedader
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    // Lecture les lignes de résultat une par une
+                    while (reader.Read())
+                    {
+                        // Création pour chacun un objet qu'on ajoute à la liste
+                        var item = new Facture();
+                        item.Id = (int)reader["Id"];
+                        item.IdClient = (int)reader["IdClient"];
+                        item.DateFacture = (DateTime)reader["DateFacture"];
+                        item.DatePaiement = (DateTime)reader["DatePaiement"];
+                        item.CodeModePaiement = (string)reader["CodeModePaiement"];
+                        listeFacture.Add(item);
+                    }
+                }
+            }// Fermeture de la connexion par "using"
+
+            return listeFacture;
+        }
+        public static List<LigneFacture> GetLigneFacture(int id)
+        {
+            var listeLigne = new List<LigneFacture>();
+            // Création d'une commande commande et definition de code sql à exécuter
+            var cmd = new SqlCommand();
+            cmd.CommandText = @"select NumLigne,IdFacture,Quantite, TauxTVA,TauxReduction,MontantHT
+                                from LigneFacture
+                                where IdFacture=2
+                                order by NumLigne";
+            // Création d'un paramètre
+            cmd.Parameters.Add(new SqlParameter
+            {
+                SqlDbType = SqlDbType.Int,
+                ParameterName = "@id",
+                Value = id
+            });
+
+            using (var conn = new SqlConnection(Settings1.Default.GrandHotelConnexion))
+            {
+                // Affection d'une connexion à la commande
+                cmd.Connection = conn;
+                // Ouverture d'une connexion
+                conn.Open();
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    // Lecture les lignes de résultat une par une
+                    while (reader.Read())
+                    {
+                        // Création pour chacun un objet qu'on ajoute à la liste
+                        var item = new LigneFacture();
+                        item.IdFacture = (int)reader["IdFacture"];
+                        item.NumLigne = (int)reader["NumLigne"];
+                        item.Quantite = (Int16)reader["Quantite"];
+                        item.MontantHT = (decimal)reader["MontantHT"];
+                        item.TauxTVA = (decimal)reader["TauxTVA"];
+                        item.TauxReduction = (decimal)reader["TauxReduction"];
+                        listeLigne.Add(item);
+                    }
+                }
+            }// Fermeture de la connexion par "using"
+
+            return listeLigne;
+        }
+
+        /*Cette methode prend en parametre une facture et l'ajoute à l'entité Facture de la BD GRANDHOTEL*/
+        public static void AjouterFacture(Facture f)
+        {
+            // Création d'une commande et definition de code sql à exécuter
+            var cmd = new SqlCommand();
+            cmd.CommandText = @"insert Facture  (IdClient,DateFacture, DatePaiement, CodeModePaiement)
+            values (@IdClient,@DateFacture, @DatePaiement, @CodeModePaiement)";
+            // Création des paramètres
+            cmd.Parameters.Add(new SqlParameter { SqlDbType = SqlDbType.Int, ParameterName = "@IdClient", Value = f.IdClient });
+            cmd.Parameters.Add(new SqlParameter { SqlDbType = SqlDbType.Date, ParameterName = "@DateFacture", Value = f.DateFacture });
+
+            cmd.Parameters.Add(new SqlParameter { SqlDbType = SqlDbType.Date, ParameterName = "@DatePaiement", Value = f.DatePaiement });
+            cmd.Parameters.Add(new SqlParameter { SqlDbType = SqlDbType.VarChar, ParameterName = "@CodeModePaiement", Value = f.CodeModePaiement });
+
+            using (var cnx = new SqlConnection(Settings1.Default.GrandHotelConnexion))
+            {
+                // Affection d'une connexion à la commande
+                cmd.Connection = cnx;
+                //  Ouverture d'une connexion
+                cnx.Open();
+                cmd.ExecuteNonQuery();
+            }// Fermeture de la connexion par "using"
+        }
+
+        public static void AjouterLigneFacture(LigneFacture lf)
+        {
+            //Création d'une commande et definition de code sql à exécuter
+
+            var cmd = new SqlCommand();
+            cmd.CommandText = @"insert LigneFacture(IdFacture, NumLigne, Quantite, MontantHT,TauxTVA,TauxReduction)
+        values (@IdFacture, @NumLigne, @Quantite, @MontantHT,@TauxTVA,@TauxReduction)";
+            // Création des paramètres
+            cmd.Parameters.Add(new SqlParameter { SqlDbType = SqlDbType.Int, ParameterName = "@IdFacture", Value = lf.IdFacture });
+            cmd.Parameters.Add(new SqlParameter { SqlDbType = SqlDbType.Int, ParameterName = "@NumLigne", Value = lf.NumLigne });
+            cmd.Parameters.Add(new SqlParameter { SqlDbType = SqlDbType.SmallInt, ParameterName = "@Quantite", Value = lf.Quantite });
+            cmd.Parameters.Add(new SqlParameter { SqlDbType = SqlDbType.Decimal, ParameterName = "@MontantHT", Value = lf.MontantHT });
+            cmd.Parameters.Add(new SqlParameter { SqlDbType = SqlDbType.Decimal, ParameterName = "@TauxTVA", Value = lf.TauxTVA });
+            cmd.Parameters.Add(new SqlParameter { SqlDbType = SqlDbType.Decimal, ParameterName = "@TauxReduction", Value = lf.TauxReduction });
+
+            using (var cnx = new SqlConnection(Settings1.Default.GrandHotelConnexion))
+            {
+                // Affection d'une connexion à la commande
+                cmd.Connection = cnx;
+                // Ouverture d'une la connexion
+                cnx.Open();
+
+                cmd.ExecuteNonQuery();
+            }// Fermeture de la connexion par "using"
+        }
+        
+        public static void ModifierFacture(Facture fact)
+        {
+            var cmd = new SqlCommand();
 
 
+            cmd.CommandText = @"update Facture set DateFacture = @dateFacture, CodeModePaiement= @CodeP			
+								where Id =@Id";
+            // Création des paramètres
+            cmd.Parameters.Add(new SqlParameter { SqlDbType = SqlDbType.Int, ParameterName = "@Id", Value = fact.Id });
+            cmd.Parameters.Add(new SqlParameter { SqlDbType = SqlDbType.Date, ParameterName = "@dateFacture", Value = fact.DateFacture });
+            cmd.Parameters.Add(new SqlParameter { SqlDbType = SqlDbType.NVarChar, ParameterName = "@CodeP", Value = fact.CodeModePaiement }); ;
 
+            using (var cnx = new SqlConnection(Settings1.Default.GrandHotelConnexion))
+            {
+                cmd.Connection = cnx;
+                cnx.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+        
+        public static Facture GetFacture(int id)
+        {
+            var item = new Facture();
+            var cmd = new SqlCommand();
+            cmd.CommandText = @"select DateFacture, CodeModePaiement from Facture where id =@Id";
+            cmd.Parameters.Add(new SqlParameter { SqlDbType = SqlDbType.Int, ParameterName = "@Id", Value = id });
+            using (var conn = new SqlConnection(Settings1.Default.GrandHotelConnexion))
+            {
+                cmd.Connection = conn;
+                conn.Open();
 
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
 
-     
+                        item.DateFacture = (DateTime)reader["DateFacture"];
+                        item.CodeModePaiement = (string)reader["CodeModePaiement"];
 
-        //public class Contexte
-        //{
-        //    /*Récupération de la liste des clients sans numéro de téléphone*/
-        //    public static List<Client> GetClientSansNumero()
-        //    {
-        //        List<Client> ListClients = new List<Client>();
-        //        On créé une commande et on définit le code sql à exécuter
-        //        var com = new SqlCommand();
-        //        com.CommandText = @"select Id, Nom
-        //        from Client 
-        //        inner join Telephone  on (Idclient = Id) 
-        //        where Numero is null ";
+                    }
+                }
+            }
 
-        //        On crée une connexion à partir de la chaîne de connexion stockée
-        //         dans les paramètres de l'appli
-        //        using (var cnx = new SqlConnection(Settings1.Default.GrandHotelConnect))
-        //        {
-        //            On affecte la connexion à la commande
-        //            com.Connection = cnx;
-        //            On ouvre la connexion
-        //            cnx.Open();
+            return item;
+        }
 
-        //            On exécute la commande en récupérant son résultat dans un objet SqlDataRedader
-        //            using (SqlDataReader sdr = com.ExecuteReader())
-        //            {
-        //                On lit les lignes de résultat une par une
-        //                while (sdr.Read())
-        //                {
-        //                    ...et pour chacune on crée un objet qu'on ajoute à la liste
-        //                    var client = new Client();
-        //                    client.Id = (int)sdr["Id"];
-        //                    client.Nom = (string)sdr["Nom"];
+        #endregion
 
-        //                    ListClients.Add(client);
-        //                }
-        //            }
-        //        }
-        //        Le fait d'avoir créé la connexion dans une instruction using
-        //         permet de fermer cette connexion automatiquement à la fin du bloc using
-
-        //        return ListClients;
-        //    }
-
-        //}
+        #region RESULTAT de l'Hotel: Les requetes sql de cette partir sont à revoir
 
         ///*Récupération de la liste des clients sans numéro de téléphone*/
         //public static int GetTauxMoyen()
@@ -532,6 +667,7 @@ namespace GrandHotel
 
         //}
 
+        #endregion
 
 
     }

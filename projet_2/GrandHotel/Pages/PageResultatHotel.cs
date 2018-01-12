@@ -14,10 +14,5 @@ namespace GrandHotel.Pages
           //  Menu.AddOption("1", "Afficher la liste des clients sans numéro", AfficherClientSansNumero);
         }
 
-        //private void AfficherClientSansNumero()
-        //{
-        //    var list = Contexte.GetClientSansNumero();
-        //    ConsoleTable.From(list, "Clients").Display("Liste des clients sans numéro");
-        //}
     }
 }
