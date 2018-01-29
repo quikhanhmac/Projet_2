@@ -1,0 +1,28 @@
+**********************************************************************************
+Projet 3 Web Static: Bo voyage du 25 au 26 Janvier 2018                           *
+Version 1: Realiser par Lydia et Niry                                             *
+Suppervisé par Mr MAKRI ALI                                                       *
+***********************************************************************************
+
+---> L'ensemble de l'interface se trouve dans le dossier WebStatic_2.
+---> La solution WebStatic_2.sln contient le projet BoVoyage.WebStatic.Interface et BoVoyage.WebStatic.Mertier
+
+---> BoVoyage.WebStatic.Interface contient les dossiers suivant:
+
+****** Dossier HTML qui regroupe les fichiers .html: les fichiers principaux sont
+------> Page.Offres.Voyage.html qui contient la liste de voyages que l'utilisateur doit choisir 
+------> Page.Reservation.html qui contient le formulaire de reservation:
+------> IMPORTANT UTILISATEUR DOIT CHOISIR UN VOYAGE AVANT D'ACCEDER AU FORMULAIRE
+------> (c'est à dire on accede à la page de reservation uniquement via la page offres voyages. )
+
+****** Dossier Scripts: contient le fichier .js(code Javascript, Jquery, Ajax) et le Nuget Jquery version 3.3.1
+et bootstrap dernière version
+
+****** Dossier Styles: contient les feuilles de styles.
+
+****** Dossier Images: contient les images.
+
+****** Dossier Content: les fichiers bootstrap dernière version
+
+
+
